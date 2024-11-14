@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/11/2024 às 00:31
+-- Tempo de geração: 14/11/2024 às 20:07
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -40,9 +40,9 @@ CREATE TABLE `atendente` (
 --
 
 INSERT INTO `atendente` (`id`, `usuario`, `senha`, `email`, `funcao`) VALUES
-(1, 'teste', '$2a$10$WYRdzOpUcZkvWesjBpRfhuJuqLr3IYG5UC7p4EKVYa0bGZz5JRMXq', 'algo@algo.com', NULL),
+(1, 'teste', '$2a$10$3rueofIVUz7Ae0AC6Ert4.Darv51npAvfNepWlW9NqTbsu2pbBLvC', 'algo@algo.com', 'atendente'),
 (7, 'pedro', '$2a$10$.XpQtYhP3UQPsVdeG7gWb.8aK/5BS2vwow/jZjAGsw.thJH6xFv0S', 'pedro@pedro.com', NULL),
-(8, 'usuario', '$2a$10$E75b/qOI352PVbZDkEWkVua0vgNCfRQEFn9K.7p9ErbjrsceZTUhO', 'atendente@atendente.com', NULL),
+(8, 'usuario', '$2a$10$llK8cicNpI4SJ6gjpJ3aJuHEvyd0GMk67kQ0bXdbOA8PLT2iIsPpC', 'atendente@atendente.com', 'adm'),
 (9, 'carlos', '$2a$10$msnrtNjuiKaGGXQOA23h6.0Go29CEKKl7NVLcR3wj0ZhgpHdO4zoC', 'carlos@calrlos.com', 'atendente');
 
 -- --------------------------------------------------------
@@ -60,6 +60,34 @@ CREATE TABLE `consulta` (
   `medico_id` int(11) NOT NULL,
   `tipo_consulta_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `consulta`
+--
+
+INSERT INTO `consulta` (`id`, `titulo`, `inicio`, `fim`, `paciente_id`, `medico_id`, `tipo_consulta_id`) VALUES
+(1, 'teste', '2024-11-12 00:32:00', '2024-11-12 02:35:00', 3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `exames`
+--
+
+CREATE TABLE `exames` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `exames`
+--
+
+INSERT INTO `exames` (`id`, `nome`) VALUES
+(2, 'Hemograma Completo'),
+(3, 'Raio-X'),
+(4, 'Tomografia Computadorizada'),
+(5, 'Ressonância Magnética');
 
 -- --------------------------------------------------------
 
@@ -133,7 +161,7 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `nome`, `cep`, `numero`, `bairro`, `cidade`, `estado`, `cpf`, `cnpj`, `nascimento`, `genero`, `email`, `telefone`, `celular`, `foto`) VALUES
-(2, 'Pedro Henrique Pestana Justo', '26130150', '136', 'Centro', 'Belford Roxo', 'RJ', '99999999999', '24124214125555', '4213-03-12', 'Masculino', 'teste@exemplo.us', '3445234523', '23453123421', NULL),
+(2, 'Pedro Henrique Pestana Justo', '26130150', '136', 'Centro', 'Belford Roxo', 'RJ', '99999999999', '24124214125555', '4213-03-12', 'Masculino', 'teste@exemplo.us', '3445234523', '23453123421', 0x313733313538393636303238372d50656469646f5f4578616d65735f4a6fc383c2a36f2053696c7661202831292e706466),
 (3, 'pedro', '26130150', '136', 'Centro', 'Belford Roxo', 'RJ', '18385640711', NULL, '2024-10-30', 'Masculino', 'herique.ph50@gmail.com', '3445234523', '11111111111', NULL),
 (4, 'asda', '26130150', '22', 'Centro', 'Belford Roxo', 'RJ', '22222222222', '22222222222222', '5123-12-13', 'Feminino', 'a@a', '2131234123', '12342151253', NULL),
 (5, 'adfasgqqwe', '25075015', '123124', 'Jardim Vinte e Cinco de Agosto', 'Duque de Caxias', 'RJ', '12341241231', '12341234125313', '0000-00-00', 'Masculino', 'bomdia@bomdia', '2131234123', '12342151253', NULL),
@@ -186,6 +214,12 @@ ALTER TABLE `consulta`
   ADD KEY `fk_tipo_consulta` (`tipo_consulta_id`);
 
 --
+-- Índices de tabela `exames`
+--
+ALTER TABLE `exames`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `historico`
 --
 ALTER TABLE `historico`
@@ -225,7 +259,13 @@ ALTER TABLE `atendente`
 -- AUTO_INCREMENT de tabela `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `exames`
+--
+ALTER TABLE `exames`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `historico`
