@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2024 às 20:07
+-- Tempo de geração: 16/11/2024 às 22:06
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -66,7 +66,8 @@ CREATE TABLE `consulta` (
 --
 
 INSERT INTO `consulta` (`id`, `titulo`, `inicio`, `fim`, `paciente_id`, `medico_id`, `tipo_consulta_id`) VALUES
-(1, 'teste', '2024-11-12 00:32:00', '2024-11-12 02:35:00', 3, 1, 1);
+(1, 'teste', '2024-11-12 00:32:00', '2024-11-12 02:35:00', 3, 1, 1),
+(4, 'asdas', '2024-11-15 22:41:00', '2024-11-15 23:41:00', 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -97,10 +98,19 @@ INSERT INTO `exames` (`id`, `nome`) VALUES
 
 CREATE TABLE `historico` (
   `id` int(11) NOT NULL,
-  `paciente_id` int(11) DEFAULT NULL,
-  `descricao` text NOT NULL,
-  `data` datetime DEFAULT current_timestamp()
+  `paciente_id` int(11) NOT NULL,
+  `data_consulta` date NOT NULL,
+  `historico` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `historico`
+--
+
+INSERT INTO `historico` (`id`, `paciente_id`, `data_consulta`, `historico`) VALUES
+(1, 2, '2024-11-16', 'teste'),
+(2, 2, '2024-11-16', 'paciente tem dores no joelho\n'),
+(3, 2, '2024-11-16', 'nada demais');
 
 -- --------------------------------------------------------
 
@@ -259,19 +269,19 @@ ALTER TABLE `atendente`
 -- AUTO_INCREMENT de tabela `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `exames`
 --
 ALTER TABLE `exames`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `historico`
 --
 ALTER TABLE `historico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `medicos`
@@ -307,7 +317,7 @@ ALTER TABLE `consulta`
 -- Restrições para tabelas `historico`
 --
 ALTER TABLE `historico`
-  ADD CONSTRAINT `historico_ibfk_1` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `historico_ibfk_1` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
