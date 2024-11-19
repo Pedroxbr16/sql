@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/11/2024 às 22:06
+-- Tempo de geração: 19/11/2024 às 01:52
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -110,7 +110,11 @@ CREATE TABLE `historico` (
 INSERT INTO `historico` (`id`, `paciente_id`, `data_consulta`, `historico`) VALUES
 (1, 2, '2024-11-16', 'teste'),
 (2, 2, '2024-11-16', 'paciente tem dores no joelho\n'),
-(3, 2, '2024-11-16', 'nada demais');
+(3, 2, '2024-11-16', 'nada demais'),
+(4, 2, '2024-11-19', 'amdasbfbaswukibqscnaslcafasdfwe'),
+(5, 3, '2024-11-19', 'nmhiasbchabscksjqsdfq'),
+(6, 2, '2024-11-19', 'Lorem ipsum quisque viverra lacus amet lorem accumsan lacus nam primis, posuere iaculis curae a per mi aliquam quis libero, class erat primis conubia erat ligula praesent phasellus ante. eu cursus hac fringilla quisque posuere phasellus sollicitudin posuere aliquam molestie pulvinar eget tristique praesent, ornare facilisis ligula fusce ad integer ultrices ullamcorper habitasse nibh in bibendum. eu nam pretium volutpat nec auctor amet ac, inceptos dictum nulla consequat elementum lorem tincidunt cubilia, vehicula turpis odio purus quisque lobortis. augue rutrum ut sociosqu sem taciti consequat purus congue condimentum blandit lacus, donec rutrum ante sed at vitae etiam euismod etiam.'),
+(7, 2, '2024-11-19', '	Lorem ipsum quisque viverra lacus amet lorem accumsan lacus nam primis, posuere iaculis curae a per mi aliquam quis libero, class erat primis conubia erat ligula praesent phasellus ante. eu cursus hac fringilla quisque posuere phasellus sollicitudin posuere aliquam molestie pulvinar eget tristique praesent, ornare facilisis ligula fusce ad integer ultrices ullamcorper habitasse nibh in bibendum. eu nam pretium volutpat nec auctor amet ac, inceptos dictum nulla consequat elementum lorem tincidunt cubilia, vehicula turpis odio purus quisque lobortis. augue rutrum ut sociosqu sem taciti consequat purus congue condimentum blandit lacus, donec rutrum ante sed at vitae etiam euismod etiam. \n\n	In euismod mauris dapibus sed elementum tempus scelerisque interdum consequat, sodales dapibus metus hendrerit tortor risus aenean vitae, integer duis vulputate condimentum sodales amet varius risus. interdum in id curae suspendisse senectus dui dictumst convallis, dui potenti ligula quam mi aptent quisque mi lacus, pellentesque lectus vivamus justo ornare iaculis donec. primis litora vulputate mi donec auctor sagittis hendrerit justo nam conubia aenean tempus, sed aenean suspendisse sociosqu id platea nulla per nam eros scelerisque. cubilia praesent felis venenatis malesuada metus justo luctus diam, class ad semper lorem commodo litora cras vulputate iaculis, eget mattis praesent ut luctus curae integer. \n\n	Ullamcorper eleifend dolor senectus ante vivamus sociosqu egestas rutrum sapien, vel nunc ullamcorper porttitor eleifend rutrum consequat cras, augue maecenas primis curabitur eu eget dui viverra. senectus justo ultricies himenaeos vehicula commodo pulvinar tellus fusce, interdum donec faucibus potenti nam dapibus fames, arcu pellentesque libero taciti id dui sodales. varius lobortis purus fringilla tempor aenean cubilia vulputate senectus, pulvinar proin urna habitant fringilla eros eleifend, volutpat molestie lacus ultricies est elementum vel. curabitur primis purus nunc nisl eu interdum vivamus augue duis sagittis fusce, rutrum torquent convallis donec aliquet dictum morbi torquent felis non phasellus mollis, fames feugiat posuere fringilla aenean semper mollis nostra sociosqu interdum. \n\n	Risus commodo non dapibus ultricies porttitor quam hendrerit habitant rhoncus cursus, fermentum pharetra congue massa gravida sollicitudin in auctor. turpis taciti varius eros eu lacinia inceptos, varius auctor eu vulputate neque habitasse odio, volutpat consequat risus auctor libero. dolor metus quam dolor lacus odio eget erat fames volutpat, gravida litora malesuada consequat fames vulputate ut orci condimentum, ut litora cursus integer venenatis vestibulum eros sodales. taciti sagittis venenatis a nam adipiscing, lacus eget cursus porta sit lacus, habitasse purus mi phasellus. sodales eros accumsan amet tempus consectetur lorem imperdiet, sed gravida porttitor ultrices neque massa ante, quisque turpis taciti scelerisque potenti volutpat. \n\n	Imperdiet donec cursus euismod sociosqu convallis ante, non hendrerit enim lectus aliquam mauris, auctor ut lacinia quisque mauris. rutrum orci nec massa nunc phasellus sollicitudin bibendum tellus id aptent, eget curabitur hac sociosqu nec placerat nec felis sapien. primis diam sagittis ornare imperdiet id imperdiet pharetra nullam fames cursus ipsum id porta, erat laoreet class fames viverra senectus etiam sed etiam vivamus suscipit. massa ultricies et morbi sagittis dapibus libero feugiat nisi laoreet, nec elit feugiat enim nullam euismod torquent. egestas vehicula commodo aliquam non, tincidunt imperdiet hac amet velit, accumsan nostra malesuada. ');
 
 -- --------------------------------------------------------
 
@@ -281,7 +285,7 @@ ALTER TABLE `exames`
 -- AUTO_INCREMENT de tabela `historico`
 --
 ALTER TABLE `historico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `medicos`
